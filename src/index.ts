@@ -17,8 +17,12 @@ import {
     BLOCKCHAIN_MAINNETS_SYMBOL_MAP,
     BLOCKCHAIN_SYMBOL_MAP,
     MULTICALL,
-    RPC_URLS
+    RPC_URLS,
+    RELAY_HUB, ICurrency, NATIVE_CURRENCY,
 } from './constants'
+import EvmAddress from "./Blockchain/evm/EvmAddress";
+import SolanaAddress from "./Blockchain/solana/SolanaAddress";
+import abis from "./abis";
 
 export {
     TChainMapList,
@@ -40,4 +44,10 @@ export {
     BLOCKCHAIN_SYMBOL_MAP,
     MULTICALL,
     RPC_URLS,
+    RELAY_HUB,
+    EvmAddress,
+    SolanaAddress,
+    abis,
+    ICurrency,
+    NATIVE_CURRENCY
 }

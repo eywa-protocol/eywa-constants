@@ -399,14 +399,51 @@ export const RPC_URLS: TChainMapList<string[]> = {
         'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     ],
     [CHAIN_ID.BSC]: ['https://bsc-dataseed.binance.org/'],
-    [CHAIN_ID.BSC_TESTNET]:  ['https://bsc.testnet.eywa.fi'],
-    [CHAIN_ID.HECO]:  ['https://http-mainnet.hecochain.com'],
+    [CHAIN_ID.BSC_TESTNET]: ['https://bsc.testnet.eywa.fi'],
+    [CHAIN_ID.HECO]: ['https://http-mainnet.hecochain.com'],
     [CHAIN_ID.HECO_TESTNET]: ['https://huobi.testnet.eywa.fi'],
-    [CHAIN_ID.POLYGON]:  ['https://rpc-mainnet.maticvigil.com/'],
+    [CHAIN_ID.POLYGON]: ['https://rpc-mainnet.maticvigil.com/'],
     [CHAIN_ID.POLYGON_TESTNET]: ['https://mumbai.testnet.eywa.fi'],
-    [CHAIN_ID.SOLANA]: [] ,
-    [CHAIN_ID.SOLANA_DEVNET]:  ['https://api.devnet.solana.com'],
-    [CHAIN_ID.SOLANA_TESTNET]:  ['https://api.testnet.solana.com'],
-    [CHAIN_ID.AVALANCHE]:['https://api.avax.network/ext/bc/C/rpc'],
+    [CHAIN_ID.SOLANA]: [],
+    [CHAIN_ID.SOLANA_DEVNET]: ['https://api.devnet.solana.com'],
+    [CHAIN_ID.SOLANA_TESTNET]: ['https://api.testnet.solana.com'],
+    [CHAIN_ID.AVALANCHE]: ['https://api.avax.network/ext/bc/C/rpc'],
     [CHAIN_ID.AVALANCHE_TESTNET]: ['https://avalanche.testnet.eywa.fi/ext/bc/C/rpc'],
+};
+export const RELAY_HUB: TChainMapList<Address> = {
+    [CHAIN_ID.ETH]: EvmAddress.ZERO,
+    [CHAIN_ID.ETH_RINKEBY]: new EvmAddress("0x6650d69225ca31049db7bd210ae4671c0b1ca132"),
+    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
+};
+
+export interface ICurrency {
+    name: string;
+    symbol: string;
+    decimals: number;
+}
+
+export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
+    [CHAIN_ID.ETH]: {name: 'ETH', symbol: 'ETH', decimals: 18},
+    [CHAIN_ID.ETH_RINKEBY]: {name: 'ETH', symbol: 'ETH', decimals: 18},
+    [CHAIN_ID.BSC]: {name: 'BNB', symbol: 'BNB', decimals: 18},
+    [CHAIN_ID.BSC_TESTNET]: {name: 'BNB', symbol: 'BNB', decimals: 18},
+    [CHAIN_ID.HECO]: {name: 'HT', symbol: 'HT', decimals: 18,},
+    [CHAIN_ID.HECO_TESTNET]: {name: 'HT', symbol: 'HT', decimals: 18,},
+    [CHAIN_ID.POLYGON]: {name: 'MATIC', symbol: 'MATIC', decimals: 18,},
+    [CHAIN_ID.POLYGON_TESTNET]: {name: 'MATIC', symbol: 'MATIC', decimals: 18},
+    [CHAIN_ID.SOLANA]: {} as any,
+    [CHAIN_ID.SOLANA_DEVNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
+    [CHAIN_ID.SOLANA_TESTNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
+    [CHAIN_ID.AVALANCHE]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
+    [CHAIN_ID.AVALANCHE_TESTNET]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
 };

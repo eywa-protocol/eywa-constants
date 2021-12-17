@@ -11,6 +11,7 @@
     "skipDefaultLibCheck": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
+    "resolveJsonModule": true,
     "lib": [
       "es5",
       "dom",
