@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "noImplicitAny": true,
+    "allowJs": false,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "lib": [
+      "es5",
+      "dom",
+      "es2015.iterable",
+      "es2015.promise"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
