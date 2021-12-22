@@ -221,18 +221,18 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
 export const PAYMASTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0xF6A74A437F0633991c007A59508287a426e5c455'
+        '0x2b891117E9896fffd05A4D07d3c6E81c8096C161'
     ),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
         '0xA6e10aA9B038c9Cddea24D2ae77eC3cE38a0c016'
     ),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
-    [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO_TESTNET]: new EvmAddress("0x3f191448a367483244B66bf667790b6b7Ed166C8"),
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
-    [CHAIN_ID.POLYGON_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0x8AC7CF0d63e38A09d1d0590B186A702e881B22c6'),
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
-    [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE_TESTNET]: new EvmAddress('0x1A6c888Fc864dd81C97f9D111e425DceA94a2bA6'),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -410,17 +410,40 @@ export const RPC_URLS: TChainMapList<string[]> = {
     [CHAIN_ID.AVALANCHE]: ['https://api.avax.network/ext/bc/C/rpc'],
     [CHAIN_ID.AVALANCHE_TESTNET]: ['https://avalanche.testnet.eywa.fi/ext/bc/C/rpc'],
 };
+
+//Описание
+// BSC
+// RelayHub: 0xd61De5D5DaaCa2D493C6E0abB52F72227D655c38
+// Paymaster (Default): 0x2b891117E9896fffd05A4D07d3c6E81c8096C161
+//
+//
+//
+// HECO
+// RelayHub: 0xEE6A45AF79487BB278d5084B65458EBC30778736
+// Paymaster (Default): 0x3f191448a367483244B66bf667790b6b7Ed166C8
+//
+//
+//
+// MUMBAI
+// RelayHub: 0xF3e68a9d3e360b6c5991fa209bEE0F716B94e2b2
+// Paymaster (Default): 0x8AC7CF0d63e38A09d1d0590B186A702e881B22c6
+//
+//
+//
+// AVALANCHE
+// RelayHub: 0x9eCDfE42FA4F67bDFa9c390f1cd33593d9FAC9aB
+// Paymaster (Default): 0x1A6c888Fc864dd81C97f9D111e425DceA94a2bA6
 export const RELAY_HUB: TChainMapList<Address> = {
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress("0x6650d69225ca31049db7bd210ae4671c0b1ca132"),
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
-    [CHAIN_ID.BSC_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC_TESTNET]: new EvmAddress('0xd61De5D5DaaCa2D493C6E0abB52F72227D655c38'),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
-    [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO_TESTNET]: new EvmAddress('0xEE6A45AF79487BB278d5084B65458EBC30778736'),
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
-    [CHAIN_ID.POLYGON_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0xF3e68a9d3e360b6c5991fa209bEE0F716B94e2b2'),
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
-    [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE_TESTNET]: new EvmAddress('0x9eCDfE42FA4F67bDFa9c390f1cd33593d9FAC9aB'),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
