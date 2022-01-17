@@ -22,7 +22,7 @@ import {
 } from './constants'
 import EvmAddress from "./Blockchain/evm/EvmAddress";
 import SolanaAddress from "./Blockchain/solana/SolanaAddress";
-import abis from "./abis";
+import * as abis from "./Blockchain/evm/constants/abis";
 
 export {
     TChainMapList,

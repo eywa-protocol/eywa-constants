@@ -1,0 +1,233 @@
+{
+  "metistestnet": {
+    "rpcUrl": "wss://stardust-ws.metis.io/",
+    "rpcUrl2": "https://stardust.metis.io/?owner=588",
+    "n": "METISTESTNET",
+    "netwiker": "MES",
+    "env_file": [
+      "networks_env/env_connect_to_metistestnet.env",
+      "networks_env/env_test_for_metistestnet.env"
+    ],
+    "chainId": 588,
+    "relayHub": "0x0000000000000000000000000000000000000000",
+    "forwarder": "0x0000000000000000000000000000000000000000",
+    "amm_pool": "0x19BCFEe83ee0D77158b0c151150aFb0f389E4721",
+    "token": [
+      {
+        "address": "0xB2e6a5a864A1004C3c828a2e767A08C173939b01",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0x351950C7C686de38383Fe0175fceC25aF8402b3d",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "rinkeby",
+      "bsctestnet",
+      "mumbai",
+      "hecotestnet",
+      "avalanchetestnet"
+    ],
+    "paymaster": "0x0000000000000000000000000000000000000000",
+    "nodeList": "0xeEb05a85E9Bf966664e876D77780D066925685E6",
+    "bridge": "0x0C3DeD430ABd2049f7eDc186dcB5D58946264361",
+    "mockDexPool": "0xA5F00301ebe82F4Ac75F1C85Bfc242158F7515C0",
+    "portal": "0x6b9c4510332f2F1fFa578E254A449C68A7Ea097f",
+    "synthesis": "0x4E6CAe714AecdC8e0f9dF6b196db47e6b05fe61D"
+  },
+  "avalanchetestnet": {
+    "rpcUrl": "wss://api.avax-test.network/ext/bc/C/ws",
+    "rpcUrl2": "https://api.avax-test.network/ext/bc/C/rpc",
+    "n": "AVALANCHETESTNET",
+    "netwiker": "AVCH",
+    "env_file": [
+      "networks_env/env_connect_to_avalanchetestnet.env",
+      "networks_env/env_test_for_avalanchetestnet.env"
+    ],
+    "chainId": 43113,
+    "relayHub": "0x0000000000000000000000000000000000000000",
+    "forwarder": "0x0000000000000000000000000000000000000000",
+    "amm_pool": "0x2D99ABD9008Dc933ff5c0CD271B88309593aB921",
+    "token": [
+      {
+        "address": "0x1e3817FD91Cc66d3137043ac45B1d3acDe288C0c",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0xd8b917cf32022e35E09Bac2c6F16a64fa7D1DEC9",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "metistestnet",
+      "rinkeby",
+      "bsctestnet",
+      "mumbai",
+      "hecotestnet"
+    ],
+    "paymaster": "0x0000000000000000000000000000000000000000",
+    "nodeList": "0x7FE2B53808289201Ee69FF053f0fd92B92CA152a",
+    "bridge": "0xE46d7D8b35671510E1246EA24EeC35F4c90Ca0f5",
+    "mockDexPool": "0x5822143e06Dfd4D710a957B3b11886D5faf1620A",
+    "portal": "0x528161f6f6b57b243bF9095E88e3853aad16781E",
+    "synthesis": "0x2CfdD6483a3605603703c750698b671C65910aC3"
+  },
+  "hecotestnet": {
+    "rpcUrl": "wss://ws-testnet.hecochain.com",
+    "n": "HECOTESTNET",
+    "netwiker": "HECO",
+    "env_file": [
+      "networks_env/env_connect_to_hecotestnet.env",
+      "networks_env/env_test_for_hecotestnet.env"
+    ],
+    "chainId": 256,
+    "relayHub": "0x0000000000000000000000000000000000000000",
+    "forwarder": "0x0000000000000000000000000000000000000000",
+    "amm_pool": "0x2bCeC25644e56422bEFd3feA5286344369396fF1",
+    "token": [
+      {
+        "address": "0x330B6f89235900A328Bd31025a6aF8f4C63734d8",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0x8781f0Fe84cc9Aa55F3e0F622001F816ccA61Cc9",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "metistestnet",
+      "rinkeby",
+      "bsctestnet",
+      "mumbai",
+      "avalanchetestnet"
+    ],
+    "paymaster": "0x0000000000000000000000000000000000000000",
+    "nodeList": "0x0F27404CC6495526e12D4E918c3d78e92A8C3154",
+    "bridge": "0x87C06A8857c121C8096Ba588865B344AE0c3703F",
+    "mockDexPool": "0xC5F5166bd1c970d2BcCdd5560ce88C1A770Ed353",
+    "portal": "0xd1b2536Eab9c1b20D088eD9CC02FD67AE7B324FF",
+    "synthesis": "0x89bB502d8D52b8B67454526EE2c9d50A0B8E97F6"
+  },
+  "mumbai": {
+    "rpcUrl": "wss://matic-testnet-archive-ws.bwarelabs.com",
+    "n": "MUMBAI",
+    "netwiker": "POLYGON",
+    "env_file": [
+      "networks_env/env_connect_to_mumbai.env",
+      "networks_env/env_test_for_mumbai.env"
+    ],
+    "chainId": 80001,
+    "relayHub": "0x6C28AfC105e65782D9Ea6F2cA68df84C9e7d750d",
+    "forwarder": "0xdA78a11FD57aF7be2eDD804840eA7f4c2A38801d",
+    "amm_pool": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+    "token": [
+      {
+        "address": "0x8198a5716de98ba81b75bf6cEBFd3f27053876B9",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0x55c18d10ded7968Cd980AbfE0547B410DF284413",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "metistestnet",
+      "rinkeby",
+      "bsctestnet",
+      "hecotestnet",
+      "avalanchetestnet"
+    ],
+    "paymaster": "0x0000000000000000000000000000000000000000",
+    "nodeList": "0x37B756a618b77B051Bff428E16A507DE6C8cfa6C",
+    "bridge": "0x7bBfbb8d5D95eB0E6AAE53339c6E73687C08d4e9",
+    "mockDexPool": "0xA78bdF554c325508C43Cc92473A59AC95194DDd6",
+    "portal": "0xf481a5B51c06a0a3bC79035Ae3e30F67B22AB665",
+    "synthesis": "0xF83406143efbE0D5478F4aDB0E37256931466f86"
+  },
+  "rinkeby": {
+    "rpcUrl": "wss://rinkeby.infura.io/ws/v3/ab95bf9f6dd743e6a8526579b76fe358",
+    "n": "RINKEBY",
+    "netwiker": "ETH",
+    "env_file": [
+      "networks_env/env_connect_to_rinkeby.env",
+      "networks_env/env_test_for_rinkeby.env"
+    ],
+    "chainId": 4,
+    "relayHub": "0x6650d69225CA31049DB7Bd210aE4671c0B1ca132",
+    "forwarder": "0x83A54884bE4657706785D7309cf46B58FE5f6e8a",
+    "amm_pool": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "token": [
+      {
+        "address": "0xA9A689d9A0C7a018FAacd90662acE690Fb09a623",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0x77c24f0Af71257C0ee26e0E0a108F940D1698d53",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "metistestnet",
+      "bsctestnet",
+      "mumbai",
+      "hecotestnet",
+      "avalanchetestnet"
+    ],
+    "paymaster": "0xA6e10aA9B038c9Cddea24D2ae77eC3cE38a0c016",
+    "nodeList": "0xf5Af884FAC960a41f5F87183092abC334e71065E",
+    "bridge": "0x04Bb006F685f4a0EF988b4dEe517f3C726cDd9b8",
+    "mockDexPool": "0x5994972c5F1e638C21BB87ABdD2c2958F82260bD",
+    "portal": "0x84e8052183A91af110535F901CEddF89545677CE",
+    "synthesis": "0xFAb579DF97010D53086A379EA131FB01F0288EA6"
+  },
+  "bsctestnet": {
+    "rpcUrl": "ws://185.132.176.254:8576",
+    "rpcUrl2": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+    "n": "BSCTESTNET",
+    "netwiker": "BSC",
+    "env_file": [
+      "networks_env/env_connect_to_bsctestnet.env",
+      "networks_env/env_test_for_bsctestnet.env"
+    ],
+    "chainId": 97,
+    "relayHub": "0xAa3E82b4c4093b4bA13Cb5714382C99ADBf750cA",
+    "forwarder": "0xeB230bF62267E94e657b5cbE74bdcea78EB3a5AB",
+    "amm_pool": "0x9ac64cc6e4415144c455bd8e4837fea55603e5c3",
+    "token": [
+      {
+        "address": "0xB81547FA8E4e37A410a42acA3aE28A7dc170Bb23",
+        "name": "EYWA",
+        "symbol": "EYWA"
+      },
+      {
+        "address": "0x786Ba7a3B3229B0eD707aFf2731DFa4a4E6CB104",
+        "name": "USDT",
+        "symbol": "USDT"
+      }
+    ],
+    "sourceForRepresentation": [
+      "metistestnet",
+      "rinkeby",
+      "mumbai",
+      "hecotestnet",
+      "avalanchetestnet"
+    ],
+    "paymaster": "0xF6A74A437F0633991c007A59508287a426e5c455",
+    "nodeList": "0x0C5bb9B0597F9F80166CCE4Cba49df740a22fe86",
+    "bridge": "0xca68D29B9B1A974FE0fDBEf5AEe1A01D1bC3457D",
+    "mockDexPool": "0xE7187F793dC3747E6470F68EB8d4CbCcF06fd969",
+    "portal": "0x7143FC4d9Be2B33d6C10f4137E973693279b2151",
+    "synthesis": "0xB6992766E9AbCd627975D84AddD88e962C492189"
+  }
+}

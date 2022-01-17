@@ -1,7 +1,7 @@
 {
   "name": "@eywa-fi/eywa-contracts",
   "description": "A library that contains all the official contracts of the EYWA",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "cjs/index.js",
   "types": "cjs/index.d.ts",
   "author": "https://github.com/chlenc",
@@ -12,6 +12,7 @@
     "test": "node-state -e -n -m typescript -o ./test/_state.ts -r"
   },
   "dependencies": {
+    "@ethersproject/abi": "^5.5.0",
     "@ethersproject/address": "^5.5.0",
     "@ethersproject/constants": "^5.5.0",
     "@solana/web3.js": "^1.31.0"
