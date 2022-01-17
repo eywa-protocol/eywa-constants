@@ -18,7 +18,7 @@ import {
     BLOCKCHAIN_SYMBOL_MAP,
     MULTICALL,
     RPC_URLS,
-    RELAY_HUB, ICurrency, NATIVE_CURRENCY,
+    ICurrency, NATIVE_CURRENCY,
 } from './constants'
 import EvmAddress from "./Blockchain/evm/EvmAddress";
 import SolanaAddress from "./Blockchain/solana/SolanaAddress";
@@ -44,7 +44,6 @@ export {
     BLOCKCHAIN_SYMBOL_MAP,
     MULTICALL,
     RPC_URLS,
-    RELAY_HUB,
     EvmAddress,
     SolanaAddress,
     abis,
