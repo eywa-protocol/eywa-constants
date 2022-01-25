@@ -22,8 +22,8 @@ import {
 } from './constants'
 import EvmAddress from "./Blockchain/evm/EvmAddress";
 import SolanaAddress from "./Blockchain/solana/SolanaAddress";
-import abis from "./abis";
-
+import abis from "./Blockchain/evm/constants/abis";
+import tokens from "./Blockchain/evm/constants/token/tokens.json";
 export {
     TChainMapList,
     CHAIN_ID,
@@ -48,5 +48,6 @@ export {
     SolanaAddress,
     abis,
     ICurrency,
-    NATIVE_CURRENCY
+    NATIVE_CURRENCY,
+    tokens
 }

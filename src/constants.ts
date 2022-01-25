@@ -6,6 +6,13 @@ export type TChainMapList<T> = {
     readonly [chainId in CHAIN_ID]: T;
 };
 
+export interface ICurrency {
+    name: string;
+    symbol: string;
+    decimals: number;
+}
+
+
 export enum CHAIN_ID {
     ETH = 1,
     ETH_RINKEBY = 4,
@@ -18,6 +25,8 @@ export enum CHAIN_ID {
     AVALANCHE = 43114,
     AVALANCHE_TESTNET = 43113,
     METIS_TESTNET = 588,
+    COINEX = 52,
+    COINEX_TESTNET = 53,
     SOLANA = -1, // TODO: fix chain id
     SOLANA_TESTNET = -2, // TODO: fix chain id
     SOLANA_DEVNET = -3, // TODO: fix chain id
@@ -26,6 +35,27 @@ export enum CHAIN_ID {
     NETWORK_3 = 1113, // Local chain
 }
 
+export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
+    [CHAIN_ID.ETH]: {name: 'ETH', symbol: 'ETH', decimals: 18},
+    [CHAIN_ID.ETH_RINKEBY]: {name: 'ETH', symbol: 'ETH', decimals: 18},
+    [CHAIN_ID.BSC]: {name: 'BNB', symbol: 'BNB', decimals: 18},
+    [CHAIN_ID.BSC_TESTNET]: {name: 'BNB', symbol: 'BNB', decimals: 18},
+    [CHAIN_ID.HECO]: {name: 'HT', symbol: 'HT', decimals: 18,},
+    [CHAIN_ID.HECO_TESTNET]: {name: 'HT', symbol: 'HT', decimals: 18,},
+    [CHAIN_ID.POLYGON]: {name: 'MATIC', symbol: 'MATIC', decimals: 18,},
+    [CHAIN_ID.POLYGON_TESTNET]: {name: 'MATIC', symbol: 'MATIC', decimals: 18},
+    [CHAIN_ID.SOLANA]: {} as any,
+    [CHAIN_ID.SOLANA_DEVNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
+    [CHAIN_ID.SOLANA_TESTNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
+    [CHAIN_ID.AVALANCHE]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
+    [CHAIN_ID.AVALANCHE_TESTNET]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
+    [CHAIN_ID.METIS_TESTNET]: {name: 'METIS', symbol: 'METIS', decimals: 18},
+    [CHAIN_ID.COINEX]: {name: 'CET', symbol: 'CET', decimals: 18,},
+    [CHAIN_ID.COINEX_TESTNET]: {name: 'CET', symbol: 'CET', decimals: 18,},
+    [CHAIN_ID.NETWORK_1]: {} as any,
+    [CHAIN_ID.NETWORK_2]: {} as any,
+    [CHAIN_ID.NETWORK_3]: {} as any,
+};
 export const CHAIN_NAME: Record<CHAIN_ID, string> = {
     [CHAIN_ID.ETH]: 'Ethereum',
     [CHAIN_ID.ETH_RINKEBY]: 'Ethereum Rinkeby',
@@ -38,6 +68,8 @@ export const CHAIN_NAME: Record<CHAIN_ID, string> = {
     [CHAIN_ID.AVALANCHE]: 'Avalanche',
     [CHAIN_ID.AVALANCHE_TESTNET]: 'Avalanche Testnet',
     [CHAIN_ID.METIS_TESTNET]: 'Metis Testnet',
+    [CHAIN_ID.COINEX]: 'CoinEx',
+    [CHAIN_ID.COINEX_TESTNET]: 'CoinEx Testnet',
     [CHAIN_ID.SOLANA]: 'Solana',
     [CHAIN_ID.SOLANA_DEVNET]: 'Solana Devnet',
     [CHAIN_ID.SOLANA_TESTNET]: 'Solana Testnet',
@@ -71,10 +103,6 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
         name: 'HecoScan Testnet',
         url: 'https://testnet.hecoinfo.com/',
     },
-    [CHAIN_ID.POLYGON_TESTNET]: {
-        name: 'Polygon explorer',
-        url: 'https://mumbai.polygonscan.com/',
-    },
     [CHAIN_ID.AVALANCHE]: {
         name: 'Avalanche explorer',
         url: 'https://cchain.explorer.avax.network/',
@@ -87,9 +115,21 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
         name: 'Polygon explorer',
         url: 'https://polygonscan.com/',
     },
+    [CHAIN_ID.POLYGON_TESTNET]: {
+        name: 'Polygon explorer',
+        url: 'https://mumbai.polygonscan.com/',
+    },
     [CHAIN_ID.METIS_TESTNET]: {
         name: 'Metis explorer',
         url: 'https://stardust-explorer.metis.io/',
+    },
+    [CHAIN_ID.COINEX]: {
+        name: 'CoinEx explorer',
+        url: 'https://www.coinex.net/',
+    },
+    [CHAIN_ID.COINEX_TESTNET]: {
+        name: 'CoinEx explorer',
+        url: 'https://testnet.coinex.net/',
     },
     [CHAIN_ID.SOLANA_DEVNET]: {
         name: 'Solana Devnet Explorer',
@@ -103,9 +143,9 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
         name: 'Solana Explorer',
         url: 'https://explorer.solana.com',
     },
-    [CHAIN_ID.NETWORK_1]: { name: '1', url: '' },
-    [CHAIN_ID.NETWORK_2]: { name: '2', url: '' },
-    [CHAIN_ID.NETWORK_3]: { name: '3', url: '' },
+    [CHAIN_ID.NETWORK_1]: {name: '1', url: ''},
+    [CHAIN_ID.NETWORK_2]: {name: '2', url: ''},
+    [CHAIN_ID.NETWORK_3]: {name: '3', url: ''},
 };
 
 export const BRIDGE_ADDRESS: TChainMapList<Address> = {
@@ -131,6 +171,10 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x0C3DeD430ABd2049f7eDc186dcB5D58946264361'
+    ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0x35EdC550Fb3c4EEA9f156eF05b3507e8468c7B87'
     ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -171,6 +215,10 @@ export const ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x19BCFEe83ee0D77158b0c151150aFb0f389E4721'
     ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0x2921578f4461775101c4B50622a4D5EF5ee38eC5'
+    ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -202,6 +250,8 @@ export const PROXY_GSN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0xCdCA50cDB6A1C6D97a065a1aECAA3e5cC8716e51'
     ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -232,6 +282,10 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x4E6CAe714AecdC8e0f9dF6b196db47e6b05fe61D'
+    ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0xc25dEcd80BBC3B125cAf90D66533F61530e3EB7c'
     ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -269,6 +323,10 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x6b9c4510332f2F1fFa578E254A449C68A7Ea097f'
+    ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0xf14106972B9586022ECd1654Ee3017cF7cc22dfe'
     ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -309,6 +367,8 @@ export const PAYMASTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0xe4740051c3f77677e1C7228868Ec97445b84F9F2'
     ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -349,6 +409,10 @@ export const FACTORY_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0xA327674305d490199B76b186Ed360fCad3296949'
     ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0x0b3Cd08e8b88D05b583Dd195c1fCcd26043C2270'
+    ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -381,6 +445,10 @@ export const STABLECOIN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x351950C7C686de38383Fe0175fceC25aF8402b3d'
     ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0x351950C7C686de38383Fe0175fceC25aF8402b3d'
+    ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -401,6 +469,8 @@ export const CURVE_PROXY_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
     [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.METIS_TESTNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -427,6 +497,8 @@ export const CURVE_LOCAL_POOL_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
     [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.METIS_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -453,6 +525,8 @@ export const CURVE_CROSSCHAIN_POOL_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
     [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.METIS_TESTNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -490,6 +564,10 @@ export const INIT_CODE_HASH: TChainMapList<string> = {
         '0x40231f6b438bce0797c9ada29b718a87ea0a5cea3fe9a771abdd76bd41a3e545',
     [CHAIN_ID.METIS_TESTNET]:
         '0x68cc803ebc27f23a62dd9f9251e76a9d6f2c659f76c92ffbd5e62d5b877384d6',
+    [CHAIN_ID.COINEX]:
+        '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f',
+    [CHAIN_ID.COINEX_TESTNET]:
+        '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f',
     [CHAIN_ID.SOLANA]: '',
     [CHAIN_ID.SOLANA_DEVNET]: '',
     [CHAIN_ID.SOLANA_TESTNET]: '',
@@ -522,6 +600,9 @@ export const DEFAULT_LOGO_URL_MAP = {
         'https://mumbai.polygonscan.com/images/main/empty-token.png', // TODO: update icon
     [CHAIN_ID.METIS_TESTNET]:
         'https://mumbai.polygonscan.com/images/main/empty-token.png', // TODO: update icon
+    [CHAIN_ID.COINEX]: '',
+    [CHAIN_ID.COINEX_TESTNET]:
+        'https://mumbai.polygonscan.com/images/main/empty-token.png', // TODO: update icon
     [CHAIN_ID.SOLANA]: '',
     [CHAIN_ID.SOLANA_DEVNET]: '',
     [CHAIN_ID.SOLANA_TESTNET]: '',
@@ -539,6 +620,7 @@ export const BLOCKCHAIN_TESTNETS_SYMBOL_MAP = {
     [CHAIN_ID.SOLANA_DEVNET]: 'SOLANA',
     [CHAIN_ID.SOLANA_TESTNET]: 'SOLANA',
     [CHAIN_ID.METIS_TESTNET]: 'METIS',
+    [CHAIN_ID.COINEX_TESTNET]: 'CET',
     [CHAIN_ID.NETWORK_1]: 'NET1',
     [CHAIN_ID.NETWORK_2]: 'NET2',
     [CHAIN_ID.NETWORK_3]: 'NET3',
@@ -551,6 +633,7 @@ export const BLOCKCHAIN_MAINNETS_SYMBOL_MAP = {
     [CHAIN_ID.POLYGON]: 'POLYGON',
     [CHAIN_ID.AVALANCHE]: 'AVCH',
     [CHAIN_ID.SOLANA]: 'SOLANA',
+    [CHAIN_ID.COINEX]: 'CET',
 };
 
 export const BLOCKCHAIN_SYMBOL_MAP = {
@@ -581,6 +664,10 @@ export const MULTICALL: TChainMapList<Address> = {
     ),
     [CHAIN_ID.METIS_TESTNET]: new EvmAddress(
         '0x1f0032B275d2B257f14243ce694D5024b4cf9Bac'
+    ),
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
+        '0xc4A4B81D9310138aa86DC36B176F89C5eC207807'
     ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -615,36 +702,12 @@ export const RPC_URLS: TChainMapList<string[]> = {
     [CHAIN_ID.POLYGON]: ['https://rpc-mainnet.maticvigil.com/'],
     [CHAIN_ID.POLYGON_TESTNET]: ['https://mumbai.testnet.eywa.fi'],
     [CHAIN_ID.METIS_TESTNET]: ['https://stardust.metis.io/?owner=588'],
+    [CHAIN_ID.COINEX]: ['https://rpc.coinex.net/'],
+    [CHAIN_ID.COINEX_TESTNET]: ['https://testnet-rpc.coinex.net/'],
     [CHAIN_ID.SOLANA]: [],
     [CHAIN_ID.SOLANA_DEVNET]: ['https://api.devnet.solana.com'],
     [CHAIN_ID.SOLANA_TESTNET]: ['https://api.testnet.solana.com'],
     [CHAIN_ID.NETWORK_1]: ['http://172.20.128.11:7545'],
     [CHAIN_ID.NETWORK_2]: ['http://172.20.128.12:8545'],
     [CHAIN_ID.NETWORK_3]: ['http://172.20.128.13:9545'],
-};
-
-export interface ICurrency {
-    name: string;
-    symbol: string;
-    decimals: number;
-}
-
-export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
-    [CHAIN_ID.ETH]: {name: 'ETH', symbol: 'ETH', decimals: 18},
-    [CHAIN_ID.ETH_RINKEBY]: {name: 'ETH', symbol: 'ETH', decimals: 18},
-    [CHAIN_ID.BSC]: {name: 'BNB', symbol: 'BNB', decimals: 18},
-    [CHAIN_ID.BSC_TESTNET]: {name: 'BNB', symbol: 'BNB', decimals: 18},
-    [CHAIN_ID.HECO]: {name: 'HT', symbol: 'HT', decimals: 18,},
-    [CHAIN_ID.HECO_TESTNET]: {name: 'HT', symbol: 'HT', decimals: 18,},
-    [CHAIN_ID.POLYGON]: {name: 'MATIC', symbol: 'MATIC', decimals: 18,},
-    [CHAIN_ID.POLYGON_TESTNET]: {name: 'MATIC', symbol: 'MATIC', decimals: 18},
-    [CHAIN_ID.SOLANA]: {} as any,
-    [CHAIN_ID.SOLANA_DEVNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
-    [CHAIN_ID.SOLANA_TESTNET]: {name: 'SOL', symbol: 'SOL', decimals: 18},
-    [CHAIN_ID.AVALANCHE]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
-    [CHAIN_ID.AVALANCHE_TESTNET]: {name: 'AVAX', symbol: 'AVAX', decimals: 18},
-    [CHAIN_ID.METIS_TESTNET]: {name: 'METIS', symbol: 'METIS', decimals: 18},
-    [CHAIN_ID.NETWORK_1]: {} as any,
-    [CHAIN_ID.NETWORK_2]: {} as any,
-    [CHAIN_ID.NETWORK_3]: {} as any,
 };
