@@ -346,7 +346,7 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
 export const PAYMASTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0x2b891117E9896fffd05A4D07d3c6E81c8096C161'
+        '0xf8CDc521B6f099a23b7199d98Ff2Fa71dbFF83A3'
     ),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
