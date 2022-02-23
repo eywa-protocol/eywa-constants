@@ -1,13 +1,12 @@
 {
   "name": "@eywa-fi/eywa-contracts",
   "description": "A library that contains all the official contracts of the EYWA",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "cjs/index.js",
   "types": "cjs/index.d.ts",
   "author": "https://github.com/chlenc",
   "scripts": {
     "testCommand": "jest",
-    "prepare": "npm run build",
     "build": "tsc -p ./tsconfig-es.json && tsc -p ./tsconfig-cjs.json && webpack",
     "test": "node-state -e -n -m typescript -o ./test/_state.ts -r"
   },
