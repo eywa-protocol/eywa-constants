@@ -1,20 +1,17 @@
 {
   "abi": [
     {
+      "anonymous": false,
       "inputs": [
         {
+          "indexed": true,
           "internalType": "address",
-          "name": "_bridge",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_trustedForwarder",
+          "name": "_rtoken",
           "type": "address"
         }
       ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "name": "ApprovedRepresentationRequest",
+      "type": "event"
     },
     {
       "anonymous": false,
@@ -64,6 +61,19 @@
         }
       ],
       "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_rtoken",
+          "type": "address"
+        }
+      ],
+      "name": "RepresentationRequest",
       "type": "event"
     },
     {
@@ -154,6 +164,108 @@
       "type": "event"
     },
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "_id",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "_to",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "SynthesizeRequestSolana",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_CHAIN_ID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_RENT",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_SYSTEM_PROGRAM",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_TOKEN_PROGRAM",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_rtoken",
+          "type": "address"
+        }
+      ],
+      "name": "approveRepresentationRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -201,6 +313,19 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "_rtoken",
+          "type": "address"
+        }
+      ],
+      "name": "createRepresentationRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "bytes32",
           "name": "_txID",
           "type": "bytes32"
@@ -232,9 +357,63 @@
           "internalType": "bytes32",
           "name": "_txID",
           "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "_pubkeys",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "emergencyUnburnRequestToSolana",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_txID",
+          "type": "bytes32"
         }
       ],
       "name": "emergencyUnsynthesize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTxId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_bridge",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_trustedForwarder",
+          "type": "address"
+        }
+      ],
+      "name": "initializeFunc",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -273,6 +452,19 @@
     },
     {
       "inputs": [],
+      "name": "proxy",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -289,14 +481,14 @@
       "name": "requests",
       "outputs": [
         {
-          "internalType": "address",
+          "internalType": "bytes32",
           "name": "recipient",
-          "type": "address"
+          "type": "bytes32"
         },
         {
-          "internalType": "address",
+          "internalType": "bytes32",
           "name": "chain2address",
-          "type": "address"
+          "type": "bytes32"
         },
         {
           "internalType": "uint256",
@@ -304,14 +496,119 @@
           "type": "uint256"
         },
         {
-          "internalType": "address",
+          "internalType": "bytes32",
           "name": "rtoken",
-          "type": "address"
+          "type": "bytes32"
         },
         {
           "internalType": "enum Portal.RequestState",
           "name": "state",
           "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "programId",
+              "type": "bytes32"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "pubkey",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "isSigner",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "isWritable",
+                  "type": "bool"
+                }
+              ],
+              "internalType": "struct SolanaSerialize.SolanaAccountMeta[]",
+              "name": "accounts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SolanaSerialize.SolanaStandaloneInstruction",
+          "name": "ix",
+          "type": "tuple"
+        }
+      ],
+      "name": "serializeSolanaStandaloneInstruction",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_proxy",
+          "type": "address"
+        }
+      ],
+      "name": "setProxyCurve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_forwarder",
+          "type": "address"
+        }
+      ],
+      "name": "setTrustedForwarder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "sighashEmergencyUnburn",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "sighashMintSyntheticToken",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
       "stateMutability": "view",
@@ -351,6 +648,45 @@
         }
       ],
       "name": "synthesize",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "txID",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "_pubkeys",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bytes1",
+          "name": "_txStateBump",
+          "type": "bytes1"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "synthesizeToSolana",
       "outputs": [
         {
           "internalType": "bytes32",
@@ -413,6 +749,216 @@
     {
       "inputs": [
         {
+          "internalType": "address[]",
+          "name": "_tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_amounts",
+          "type": "uint256[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "chain2address",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Portal.SynthParams",
+          "name": "_synth_params",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes4",
+          "name": "_selector",
+          "type": "bytes4"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_transit_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "synthesize_batch_transit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_amounts",
+          "type": "uint256[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "chain2address",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Portal.SynthParams",
+          "name": "_synth_params",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes4",
+          "name": "_selector",
+          "type": "bytes4"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_transit_data",
+          "type": "bytes"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct Portal.PermitData[]",
+          "name": "_permit_data",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "synthesize_batch_transit_with_permit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_chain2address",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_receiveSide",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_oppositeBridge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_out",
+          "type": "bytes"
+        }
+      ],
+      "name": "synthesize_transit",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "txId",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "tokenData",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "address",
           "name": "newOwner",
           "type": "address"
@@ -421,6 +967,19 @@
       "name": "transferOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "trustedForwarder",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
