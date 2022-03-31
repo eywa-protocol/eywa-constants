@@ -459,6 +459,30 @@ export const STABLECOIN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
 };
 
+export const FARM_ADDRESS: TChainMapList<Address> = {
+    [CHAIN_ID.ETH]: EvmAddress.ZERO,
+    [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
+        '0xC3518c82746b8B45119207a230B555d5781B9430'
+    ),
+    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.METIS_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.NETWORK_1]: EvmAddress.ZERO,
+    [CHAIN_ID.NETWORK_2]: EvmAddress.ZERO,
+    [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
+}
+
 export const CURVE_PROXY_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: EvmAddress.ZERO,
