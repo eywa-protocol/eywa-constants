@@ -9,6 +9,7 @@ import { abi as SYNTHESIZE_ABI } from './SYNTHESIZE.json';
 import { abi as DEX_ROUTER_ABI } from './UNISWAP_ROUTER.json';
 import { abi as WETH_ABI } from './WETH.json';
 import { abi as RELAY_HUB_ABI } from './RELAY_HUB_ABI.json';
+import { abi as FARM_ABI } from './FARM.json';
 
 export default {
     ERC20_ABI,
@@ -22,4 +23,5 @@ export default {
     DEX_ROUTER_ABI,
     WETH_ABI,
     RELAY_HUB_ABI,
+    FARM_ABI,
 }

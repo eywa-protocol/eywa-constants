@@ -10,6 +10,7 @@ import {
     PORTAL_ADDRESS,
     PAYMASTER_ADDRESS,
     FACTORY_ADDRESS,
+    FARM_ADDRESS,
     STABLECOIN_ADDRESS,
     INIT_CODE_HASH,
     DEFAULT_LOGO_URL_MAP,
@@ -19,11 +20,11 @@ import {
     MULTICALL,
     RPC_URLS,
     ICurrency, NATIVE_CURRENCY,
-} from './constants'
-import EvmAddress from "./Blockchain/evm/EvmAddress";
-import SolanaAddress from "./Blockchain/solana/SolanaAddress";
-import abis from "./Blockchain/evm/constants/abis";
-import tokens from "./Blockchain/evm/constants/token/tokens.json";
+} from './constants';
+import EvmAddress from './Blockchain/evm/EvmAddress';
+import SolanaAddress from './Blockchain/solana/SolanaAddress';
+import abis from './Blockchain/evm/constants/abis';
+import tokens from './Blockchain/evm/constants/token/tokens.json';
 export {
     TChainMapList,
     CHAIN_ID,
@@ -36,6 +37,7 @@ export {
     PORTAL_ADDRESS,
     PAYMASTER_ADDRESS,
     FACTORY_ADDRESS,
+    FARM_ADDRESS,
     STABLECOIN_ADDRESS,
     INIT_CODE_HASH,
     DEFAULT_LOGO_URL_MAP,
