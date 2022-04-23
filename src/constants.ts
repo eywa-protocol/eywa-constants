@@ -151,7 +151,7 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
 export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0x69aAC0c2f98004a3370f8Ef4077866702572175b'
+        '0x85026Fd95662071Db9956B55838349ac91911a33'
     ),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
@@ -159,7 +159,7 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
-        '0xb3b263794fDae61557D759c83619107bae55cAe2'
+        '0xdAc84F822Cc3DCED11F5B26656ec6DF46Df53dcF'
     ),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: new EvmAddress(
@@ -259,10 +259,33 @@ export const PROXY_GSN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.NETWORK_2]: EvmAddress.ZERO,
     [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
 };
+
+export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
+    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC_TESTNET]: new EvmAddress('0xb793410b3dd2b26bf0aA6ba75C4D496238E3c659'),
+    [CHAIN_ID.ETH]: EvmAddress.ZERO,
+    [CHAIN_ID.ETH_RINKEBY]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0xc49a5C13E550414f0e4403aBc2a660Fd896be885'),
+    [CHAIN_ID.HECO]: EvmAddress.ZERO,
+    [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
+    [CHAIN_ID.AVALANCHE_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.METIS_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX]: EvmAddress.ZERO,
+    [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
+    [CHAIN_ID.NETWORK_1]: EvmAddress.ZERO,
+    [CHAIN_ID.NETWORK_2]: EvmAddress.ZERO,
+    [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
+};
+
 export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0x0b0c12281e650bb36CBeab322f6A9e9609F62Eb2'
+        '0x03E5DaAeCEeE402BD39C1afE56cA857704Cd02f1'
     ),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
@@ -270,7 +293,7 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
-        '0x3C6693c5634AbE31850C71c6A70A4B02EC89f58e'
+        '0xBa5e8214A03cbbA1934123BA013b0CaCd3F93f50'
     ),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: new EvmAddress(
@@ -303,7 +326,7 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
 export const PORTAL_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0x3365bF965600D65b21472F4a3B353aC516a415eA'
+        '0xfEbaf581256a67D71790Fde25feC219e6F84DBF9'
     ),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
@@ -311,7 +334,7 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
-        '0x8Ae130518198cCde131Dfe81EEC2Aa11ecBa2A1B'
+        '0x7aFaDe9ba507176Ed8BCB1B2598e68a330F00b86'
     ),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: new EvmAddress(
