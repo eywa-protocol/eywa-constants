@@ -10,18 +10,20 @@ import { abi as DEX_ROUTER_ABI } from './UNISWAP_ROUTER.json';
 import { abi as WETH_ABI } from './WETH.json';
 import { abi as RELAY_HUB_ABI } from './RELAY_HUB_ABI.json';
 import { abi as FARM_ABI } from './FARM.json';
+import { abi as BRIDGE_ROUTER_ABI } from './BRIDGE_ROUTER.json';
 
 export default {
-    ERC20_ABI,
-    GASLESS_ABI,
-    LP_TOKEN_ABI,
-    MULTICALL_ABI,
-    PAYMASTER_ABI,
-    PORTAL_ABI,
-    PROXY_GSN_ABI,
-    SYNTHESIZE_ABI,
-    DEX_ROUTER_ABI,
-    WETH_ABI,
-    RELAY_HUB_ABI,
-    FARM_ABI,
+  ERC20_ABI,
+  GASLESS_ABI,
+  LP_TOKEN_ABI,
+  MULTICALL_ABI,
+  PAYMASTER_ABI,
+  PORTAL_ABI,
+  PROXY_GSN_ABI,
+  SYNTHESIZE_ABI,
+  DEX_ROUTER_ABI,
+  WETH_ABI,
+  RELAY_HUB_ABI,
+  FARM_ABI,
+  BRIDGE_ROUTER_ABI,
 }

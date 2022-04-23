@@ -1,0 +1,1350 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "portal",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "synthesis",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "curveProxy",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "userFrom",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "worker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "executionPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "CrosschainPaymentEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DOMAIN_SEPARATOR",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_SYNTHESIZE_REQUEST_SIGNATURE_HASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_SYNTH_TRANSFER_REQUEST_SIGNATURE_HASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_UNSYNTHESIZE_REQUEST_SIGNATURE_HASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_trustedWorker",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "token",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amount",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bytes4",
+              "name": "selector",
+              "type": "bytes4"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IPortal.TransitData",
+          "name": "transitData",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IPortal.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IPortal.PermitData[]",
+          "name": "permitData",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "batchSynthesizeRequestWithDataTransit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "txID",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "receiveSide",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "oppositeBridge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "emergencyUnburnRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "txID",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "receiveSide",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "oppositeBridge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "emergencyUnsyntesizeRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "add",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "exchange",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "remove",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinMintAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int128",
+              "name": "i",
+              "type": "int128"
+            },
+            {
+              "internalType": "int128",
+              "name": "j",
+              "type": "int128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinDy",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int128",
+              "name": "x",
+              "type": "int128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "chain2address",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "initialBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialChainID",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ICurveProxy.MetaExchangeParams",
+          "name": "params",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ICurveProxy.PermitData[]",
+          "name": "permit",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address[3]",
+          "name": "token",
+          "type": "address[3]"
+        },
+        {
+          "internalType": "uint256[3]",
+          "name": "amount",
+          "type": "uint256[3]"
+        }
+      ],
+      "name": "metaExchangeRequestVia3pool",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "addAtCrosschainPool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinMintAmountC",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lpIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "addAtHubPool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinMintAmountH",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "initialBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialChainID",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ICurveProxy.MetaMintEUSD",
+          "name": "params",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ICurveProxy.PermitData[]",
+          "name": "permit",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address[3]",
+          "name": "token",
+          "type": "address[3]"
+        },
+        {
+          "internalType": "uint256[3]",
+          "name": "amount",
+          "type": "uint256[3]"
+        }
+      ],
+      "name": "mintEusdRequestVia3pool",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "nonces",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "removeAtCrosschainPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int128",
+              "name": "x",
+              "type": "int128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinAmountC",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "removeAtHubPool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenAmountH",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int128",
+              "name": "y",
+              "type": "int128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedMinAmountH",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct ICurveProxy.MetaRedeemEUSD",
+          "name": "params",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ICurveProxy.PermitData",
+          "name": "permit",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address",
+          "name": "payToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "receiveSide",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "oppositeBridge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemEusdRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "worker",
+          "type": "address"
+        }
+      ],
+      "name": "removeTrustedWorker",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "worker",
+          "type": "address"
+        }
+      ],
+      "name": "setTrustedWorker",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "rtoken",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthTransferRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "tokenReal",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenSynth",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthTransferRequestPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IPortal.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthesizeRequestPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IPortal.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IPortal.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthesizeRequestWithPermitPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IPortal.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "tokenSynthesizeRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "pubkeys",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bytes1",
+          "name": "txStateBump",
+          "type": "bytes1"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenSynthesizeRequestToSolana",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IPortal.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IPortal.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        }
+      ],
+      "name": "tokenSynthesizeRequestWithPermit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "stoken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "receiveSide",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "oppositeBridge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "unsynthesizeRequest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenSynth",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "unsynthesizeRequestPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "stoken",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32[]",
+          "name": "pubkeys",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "unsynthesizeRequestToSolana",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}
