@@ -193,7 +193,7 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     ),
     [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
-        '0xdAc84F822Cc3DCED11F5B26656ec6DF46Df53dcF'
+        '0x18a6Da5D7cA6e542C96FC0ba7418a886264403ab'
     ),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -209,11 +209,11 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     ),
 };
 
-//router
+// dex router
 export const ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: new EvmAddress('0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
-        '0xb793410b3dd2b26bf0aA6ba75C4D496238E3c659'
+        '0x9ac64cc6e4415144c455bd8e4837fea55603e5c3'
     ),
     [CHAIN_ID.ETH]: new EvmAddress('0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'),
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
@@ -223,7 +223,7 @@ export const ROUTER_ADDRESS: TChainMapList<Address> = {
         '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff'
     ),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
-        '0xc49a5C13E550414f0e4403aBc2a660Fd896be885'
+        '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
     ),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: new EvmAddress(
@@ -241,9 +241,7 @@ export const ROUTER_ADDRESS: TChainMapList<Address> = {
         '0x2921578f4461775101c4B50622a4D5EF5ee38eC5'
     ),
     [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
-    [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
-        '0x8F73D1A70cD0aCd9469356B1F2Cdc3a841CF2037'
-    ),
+    [CHAIN_ID.HARMONY_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -289,14 +287,13 @@ export const PROXY_GSN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
 };
 
-// ?
 export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: EvmAddress.ZERO,
-    [CHAIN_ID.BSC_TESTNET]: new EvmAddress('0x85026Fd95662071Db9956B55838349ac91911a33'),
+    [CHAIN_ID.BSC_TESTNET]: new EvmAddress('0xb793410b3dd2b26bf0aA6ba75C4D496238E3c659'),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: EvmAddress.ZERO,
     [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
-    [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0xdAc84F822Cc3DCED11F5B26656ec6DF46Df53dcF'),
+    [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0xc49a5C13E550414f0e4403aBc2a660Fd896be885'),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.AVALANCHE]: EvmAddress.ZERO,
@@ -305,7 +302,7 @@ export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.COINEX]: EvmAddress.ZERO,
     [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
-    [CHAIN_ID.HARMONY_TESTNET]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress('0x8F73D1A70cD0aCd9469356B1F2Cdc3a841CF2037'),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_TESTNET]: SolanaAddress.ZERO,
@@ -728,7 +725,7 @@ export const INIT_CODE_HASH: TChainMapList<string> = {
     [CHAIN_ID.COINEX_TESTNET]:
         '0x5eff9d4048e36782dd54cfe49415dbd16e86bcb86b354012447525374c1af183',
     [CHAIN_ID.HARMONY]: '',
-    [CHAIN_ID.HARMONY_TESTNET]: '',
+    [CHAIN_ID.HARMONY_TESTNET]: '0x0000000000000000000000000000000000000000000000000000000000000000',
     [CHAIN_ID.SOLANA]: '',
     [CHAIN_ID.SOLANA_DEVNET]: '',
     [CHAIN_ID.SOLANA_TESTNET]: '',
