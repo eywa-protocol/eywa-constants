@@ -27,7 +27,7 @@ export enum CHAIN_ID {
     METIS_TESTNET = 588,
     COINEX = 52,
     COINEX_TESTNET = 53,
-    HARMONY = 1666600000, //todo check chainId
+    HARMONY = 1666600001,
     HARMONY_TESTNET = 1666700000,
     SOLANA = -1, // TODO: fix chain id
     SOLANA_TESTNET = -2, // TODO: fix chain id
@@ -164,7 +164,7 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
 
 //bridge
 export const BRIDGE_ADDRESS: TChainMapList<Address> = {
-    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC]: new EvmAddress('0x2D6f94a9D44233CE487c78Bd0838236E1cAD1229'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
         '0x85026Fd95662071Db9956B55838349ac91911a33'
     ),
@@ -172,7 +172,7 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
         '0x6a0fe2A422Ab5bb31666fE35aA6Becd941c7728A'
     ),
-    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: new EvmAddress('0x4211D7678e93aF63f0Ae5693e07E2142A92cEe50'),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
         '0xdAc84F822Cc3DCED11F5B26656ec6DF46Df53dcF'
     ),
@@ -191,7 +191,7 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
         '0xcb6744697B22B0e83BA9d171C13e2E830fd14cDd'
     ),
-    [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY]: new EvmAddress('0x17701C112c9A5c9559a05a5F2e5fed5d30B8f75a'),
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
         '0x18a6Da5D7cA6e542C96FC0ba7418a886264403ab'
     ),
@@ -209,7 +209,7 @@ export const BRIDGE_ADDRESS: TChainMapList<Address> = {
     ),
 };
 
-// dex router
+// dex router(amm_pool)
 export const ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.BSC]: new EvmAddress('0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
@@ -287,12 +287,13 @@ export const PROXY_GSN_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
 };
 
+// router
 export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
-    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC]: new EvmAddress('0xafb56CBD60a9a6637c6A21efFfba3386076e628B'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress('0xb793410b3dd2b26bf0aA6ba75C4D496238E3c659'),
     [CHAIN_ID.ETH]: EvmAddress.ZERO,
     [CHAIN_ID.ETH_RINKEBY]: EvmAddress.ZERO,
-    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: new EvmAddress('0x95A2B1e219B439575c61D6366208A73E77F09A6A'),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress('0xc49a5C13E550414f0e4403aBc2a660Fd896be885'),
     [CHAIN_ID.HECO]: EvmAddress.ZERO,
     [CHAIN_ID.HECO_TESTNET]: EvmAddress.ZERO,
@@ -301,7 +302,7 @@ export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.METIS_TESTNET]: EvmAddress.ZERO,
     [CHAIN_ID.COINEX]: EvmAddress.ZERO,
     [CHAIN_ID.COINEX_TESTNET]: EvmAddress.ZERO,
-    [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY]: new EvmAddress('0x8789A375d502d520e0DEb188153514349e348Ef3'),
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress('0x8F73D1A70cD0aCd9469356B1F2Cdc3a841CF2037'),
     [CHAIN_ID.SOLANA]: SolanaAddress.ZERO,
     [CHAIN_ID.SOLANA_DEVNET]: SolanaAddress.ZERO,
@@ -313,7 +314,7 @@ export const BRIDGE_ROUTER_ADDRESS: TChainMapList<Address> = {
 
 // synthesis
 export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
-    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC]: new EvmAddress('0x866A8ff9900aD18DDA3DB4Dd2E9704d650be5A95'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
         '0x03E5DaAeCEeE402BD39C1afE56cA857704Cd02f1'
     ),
@@ -321,7 +322,7 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
         '0xf9a3DE86c0A89755Fe661315c1F1866C69D59DCF'
     ),
-    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: new EvmAddress('0x5E5b109b779E45D32Ae271036ECee68B99Bd9B93'),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
         '0xBa5e8214A03cbbA1934123BA013b0CaCd3F93f50'
     ),
@@ -340,7 +341,7 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
         '0xB2B0E6B452edC2AeEc5F7f037834BBf185F95B37'
     ),
-    [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY]: new EvmAddress('0x2e6a2A1D0A10F47C6aaA979e2Af6991b872B7A39'),
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
         '0xDa624001d6fDa00De3F78B13091456557f7392EB'
     ),
@@ -360,7 +361,7 @@ export const SYNTHESIZE_ADDRESS: TChainMapList<Address> = {
 
 // portal
 export const PORTAL_ADDRESS: TChainMapList<Address> = {
-    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC]: new EvmAddress('0xB162841Cb2B030680944a377eA33b92C218115Af'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
         '0xfEbaf581256a67D71790Fde25feC219e6F84DBF9'
     ),
@@ -368,7 +369,7 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
         '0x64F371aeaAA05080cB0b277f56C4aCE787515Af9'
     ),
-    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: new EvmAddress('0x7a1c7a96F060EfD03fF440B25C33DE70397129c5'),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
         '0x7aFaDe9ba507176Ed8BCB1B2598e68a330F00b86'
     ),
@@ -387,7 +388,7 @@ export const PORTAL_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
         '0x41073a70f2E959D6C2fe1F54D54201C881b02cFC'
     ),
-    [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY]: new EvmAddress('0x6EDBe1c086fF0587769ee051dfBCAcb82e636908'),
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
         '0x481c99356EDEf668ED466bB00942CE9a869c0F7b'
     ),
@@ -453,7 +454,7 @@ export const MULTICALL: TChainMapList<Address> = {
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
         '0xaE816a6C152dDf153EabF04d9A028bfACB32A1Ef'
     ),
-    [CHAIN_ID.BSC]: EvmAddress.ZERO,
+    [CHAIN_ID.BSC]: new EvmAddress('0x31B4C247d05Cfe420d622707aD9A3a5151300150'),
     [CHAIN_ID.BSC_TESTNET]: new EvmAddress(
         '0x170E8a03086Aa2F45A899EdB777A2AfA3e34d1cC'
     ),
@@ -465,7 +466,7 @@ export const MULTICALL: TChainMapList<Address> = {
     [CHAIN_ID.AVALANCHE_TESTNET]: new EvmAddress(
         '0xC01E1a1A0d1AB61b07a3a29cf8D28cD70b8CF864'
     ),
-    [CHAIN_ID.POLYGON]: EvmAddress.ZERO,
+    [CHAIN_ID.POLYGON]: new EvmAddress('0x76A0E73E00c7bd262a256f73B676577738A4cd95'),
     [CHAIN_ID.POLYGON_TESTNET]: new EvmAddress(
         '0x1fA6316Db4c1361f112AcD890Bb68EFA915820f0'
     ),
@@ -476,7 +477,7 @@ export const MULTICALL: TChainMapList<Address> = {
     [CHAIN_ID.COINEX_TESTNET]: new EvmAddress(
         '0xfB0aA51D460032b8fe0ddD9a700eC4B7aF824008'
     ),
-    [CHAIN_ID.HARMONY]: EvmAddress.ZERO,
+    [CHAIN_ID.HARMONY]: new EvmAddress('0x95096a9C8E5cA8b2571a0317EB942142cFa49393'),
     [CHAIN_ID.HARMONY_TESTNET]: new EvmAddress(
         '0xA1f21966E31240805D40d176fF1f662a8439DF93'
     ),
@@ -724,7 +725,7 @@ export const INIT_CODE_HASH: TChainMapList<string> = {
         '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f',
     [CHAIN_ID.COINEX_TESTNET]:
         '0x5eff9d4048e36782dd54cfe49415dbd16e86bcb86b354012447525374c1af183',
-    [CHAIN_ID.HARMONY]: '',
+    [CHAIN_ID.HARMONY]: '0x0000000000000000000000000000000000000000000000000000000000000000',
     [CHAIN_ID.HARMONY_TESTNET]: '0x0000000000000000000000000000000000000000000000000000000000000000',
     [CHAIN_ID.SOLANA]: '',
     [CHAIN_ID.SOLANA_DEVNET]: '',
@@ -761,7 +762,7 @@ export const DEFAULT_LOGO_URL_MAP = {
     [CHAIN_ID.COINEX]: '',
     [CHAIN_ID.COINEX_TESTNET]:
         'https://mumbai.polygonscan.com/images/main/empty-token.png', // TODO: update icon
-    [CHAIN_ID.HARMONY]: '',
+    [CHAIN_ID.HARMONY]: 'https://mumbai.polygonscan.com/images/main/empty-token.png',// TODO: update icon
     [CHAIN_ID.HARMONY_TESTNET]:
         'https://mumbai.polygonscan.com/images/main/empty-token.png', // TODO: update icon
     [CHAIN_ID.SOLANA]: '',
@@ -825,7 +826,7 @@ export const RPC_URLS: TChainMapList<string[]> = {
     [CHAIN_ID.METIS_TESTNET]: ['https://stardust.metis.io/?owner=588'],
     [CHAIN_ID.COINEX]: ['https://rpc.coinex.net/'],
     [CHAIN_ID.COINEX_TESTNET]: ['https://testnet-rpc.coinex.net/'],
-    [CHAIN_ID.HARMONY]: [''],
+    [CHAIN_ID.HARMONY]: ['https://harmony.mainnet.eywa.fi'],
     [CHAIN_ID.HARMONY_TESTNET]: ['https://http.testnet.eywa.fi:17012'],
     [CHAIN_ID.SOLANA]: [],
     [CHAIN_ID.SOLANA_DEVNET]: ['https://api.devnet.solana.com'],
