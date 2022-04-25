@@ -139,11 +139,11 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
     },
     [CHAIN_ID.HARMONY]: {
         name: 'Harmony explorer',
-        url: 'https://explorer.harmony.one/',
+        url: 'https://explorer.harmony.one',
     },
     [CHAIN_ID.HARMONY_TESTNET]: {
         name: 'Harmony explorer',
-        url: 'https://explorer.testnet.harmony.one/',
+        url: 'https://explorer.testnet.harmony.one',
     },
     [CHAIN_ID.SOLANA_DEVNET]: {
         name: 'Solana Devnet Explorer',
