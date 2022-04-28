@@ -1,3 +1,4 @@
+import { AddressZero } from '@ethersproject/constants';
 import Address from './Blockchain/abstract/Address';
 import EvmAddress from './Blockchain/evm/EvmAddress';
 import SolanaAddress from './Blockchain/solana/SolanaAddress';
@@ -495,7 +496,7 @@ export const MULTICALL: TChainMapList<Address> = {
     ),
 };
 
-// relayerPoolFactory ?
+// dex factory
 export const FACTORY_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.ETH]: new EvmAddress('0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'),
     [CHAIN_ID.ETH_RINKEBY]: new EvmAddress(
@@ -602,6 +603,35 @@ export const FARM_ADDRESS: TChainMapList<Address> = {
     [CHAIN_ID.NETWORK_1]: EvmAddress.ZERO,
     [CHAIN_ID.NETWORK_2]: EvmAddress.ZERO,
     [CHAIN_ID.NETWORK_3]: EvmAddress.ZERO,
+}
+
+export const VESTING_ADDRESSES: TChainMapList<string[]> = {
+  [CHAIN_ID.ETH]: [AddressZero],
+  [CHAIN_ID.ETH_RINKEBY]: [AddressZero],
+  [CHAIN_ID.BSC]: [AddressZero],
+  [CHAIN_ID.BSC_TESTNET]: [AddressZero],
+  [CHAIN_ID.POLYGON]: [AddressZero],
+  [CHAIN_ID.POLYGON_TESTNET]: [
+    '0x4EFF433ec6cC01E2a41E548300b7c69bBE59A8Cc',
+    '0xA0333C19aFB9848CfaE5271D14a1b7b37fb0A14f',
+    '0x2b562d0106c16b54D3Dd7D8C9854532882e2e269',
+    '0x6E9D2e69a4a50200292aec4DD5bCF54507571628',
+  ],
+  [CHAIN_ID.HECO]: [AddressZero],
+  [CHAIN_ID.HECO_TESTNET]: [AddressZero],
+  [CHAIN_ID.AVALANCHE]: [AddressZero],
+  [CHAIN_ID.AVALANCHE_TESTNET]: [AddressZero],
+  [CHAIN_ID.METIS_TESTNET]: [AddressZero],
+  [CHAIN_ID.COINEX]: [AddressZero],
+  [CHAIN_ID.COINEX_TESTNET]: [AddressZero],
+  [CHAIN_ID.HARMONY]: [AddressZero],
+  [CHAIN_ID.HARMONY_TESTNET]: [AddressZero],
+  [CHAIN_ID.SOLANA]: [SolanaAddress.ZERO.toString()],
+  [CHAIN_ID.SOLANA_DEVNET]: [SolanaAddress.ZERO.toString()],
+  [CHAIN_ID.SOLANA_TESTNET]: [SolanaAddress.ZERO.toString()],
+  [CHAIN_ID.NETWORK_1]: [AddressZero],
+  [CHAIN_ID.NETWORK_2]: [AddressZero],
+  [CHAIN_ID.NETWORK_3]: [AddressZero],
 }
 
 // ?
