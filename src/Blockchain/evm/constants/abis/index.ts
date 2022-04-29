@@ -11,6 +11,7 @@ import { abi as WETH_ABI } from './WETH.json';
 import { abi as RELAY_HUB_ABI } from './RELAY_HUB_ABI.json';
 import { abi as FARM_ABI } from './FARM.json';
 import { abi as BRIDGE_ROUTER_ABI } from './BRIDGE_ROUTER.json';
+import { abi as VESTING_ABI } from './VESTING.json';
 
 export default {
   ERC20_ABI,
@@ -26,4 +27,5 @@ export default {
   RELAY_HUB_ABI,
   FARM_ABI,
   BRIDGE_ROUTER_ABI,
+  VESTING_ABI,
 }
