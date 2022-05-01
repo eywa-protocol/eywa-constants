@@ -13,7 +13,7 @@ import { abi as FARM_ABI } from './FARM.json';
 import { abi as BRIDGE_ROUTER_ABI } from './BRIDGE_ROUTER.json';
 import { abi as VESTING_ABI } from './VESTING.json';
 
-export default {
+export {
   ERC20_ABI,
   GASLESS_ABI,
   LP_TOKEN_ABI,
