@@ -38,18 +38,8 @@ export const CHAIN_NAME: Record<CHAIN_ID, string> = {
     [CHAIN_ID.BSC_TESTNET]: 'Binance Smart Chain Testnet',
     [CHAIN_ID.POLYGON]: 'Polygon',
     [CHAIN_ID.POLYGON_TESTNET]: 'Polygon Mumbai',
-    [CHAIN_ID.HECO]: 'Heco',
-    [CHAIN_ID.HECO_TESTNET]: 'Heco Testnet',
-    [CHAIN_ID.AVALANCHE]: 'Avalanche',
-    [CHAIN_ID.AVALANCHE_TESTNET]: 'Avalanche Testnet',
-    [CHAIN_ID.METIS_TESTNET]: 'Metis Testnet',
-    [CHAIN_ID.COINEX]: 'CoinEx',
-    [CHAIN_ID.COINEX_TESTNET]: 'CoinEx Testnet',
     [CHAIN_ID.HARMONY]: 'Harmony One',
     [CHAIN_ID.HARMONY_TESTNET]: 'Harmony One Testnet',
-    [CHAIN_ID.SOLANA]: 'Solana',
-    [CHAIN_ID.SOLANA_DEVNET]: 'Solana Devnet',
-    [CHAIN_ID.SOLANA_TESTNET]: 'Solana Testnet',
 };
 
 export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
@@ -69,22 +59,6 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
         name: 'BscScan',
         url: 'https://testnet.bscscan.com',
     },
-    [CHAIN_ID.HECO]: {
-        name: 'HecoScan',
-        url: 'https://hecoinfo.com',
-    },
-    [CHAIN_ID.HECO_TESTNET]: {
-        name: 'HecoScan Testnet',
-        url: 'https://testnet.hecoinfo.com',
-    },
-    [CHAIN_ID.AVALANCHE]: {
-        name: 'Avalanche explorer',
-        url: 'https://cchain.explorer.avax.network',
-    },
-    [CHAIN_ID.AVALANCHE_TESTNET]: {
-        name: 'Avalanche explorer',
-        url: 'https://cchain.explorer.avax-test.network',
-    },
     [CHAIN_ID.POLYGON]: {
         name: 'Polygon explorer',
         url: 'https://polygonscan.com',
@@ -93,18 +67,6 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
         name: 'Polygon explorer',
         url: 'https://mumbai.polygonscan.com',
     },
-    [CHAIN_ID.METIS_TESTNET]: {
-        name: 'Metis explorer',
-        url: 'https://stardust-explorer.metis.io',
-    },
-    [CHAIN_ID.COINEX]: {
-        name: 'CoinEx explorer',
-        url: 'https://www.coinex.net',
-    },
-    [CHAIN_ID.COINEX_TESTNET]: {
-        name: 'CoinEx explorer',
-        url: 'https://testnet.coinex.net',
-    },
     [CHAIN_ID.HARMONY]: {
         name: 'Harmony explorer',
         url: 'https://explorer.harmony.one',
@@ -112,18 +74,6 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
     [CHAIN_ID.HARMONY_TESTNET]: {
         name: 'Harmony explorer',
         url: 'https://explorer.testnet.harmony.one',
-    },
-    [CHAIN_ID.SOLANA_DEVNET]: {
-        name: 'Solana Devnet Explorer',
-        url: 'https://explorer.solana.com/?cluster=devnet',
-    },
-    [CHAIN_ID.SOLANA_TESTNET]: {
-        name: 'Solana Testnet Explorer',
-        url: 'https://explorer.solana.com/?cluster=testnet',
-    },
-    [CHAIN_ID.SOLANA]: {
-        name: 'Solana Explorer',
-        url: 'https://explorer.solana.com',
     },
 };
 
