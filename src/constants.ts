@@ -31,7 +31,8 @@ export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
     [CHAIN_ID.HARMONY]: {name: 'HRM', symbol: 'HRM', decimals: 18,},
     [CHAIN_ID.HARMONY_TESTNET]: {name: 'HRM', symbol: 'HRM', decimals: 18,},
 };
-export const CHAIN_NAME: Record<CHAIN_ID, string> = {
+
+export const CHAIN_NAME: TChainMapList<string> = {
     [CHAIN_ID.ETH]: 'Ethereum',
     [CHAIN_ID.ETH_RINKEBY]: 'Ethereum Rinkeby',
     [CHAIN_ID.BSC]: 'Binance Smart Chain',
@@ -121,7 +122,7 @@ export const BRIDGE_ROUTER_ADDRESS: TChainMapList<string> = {
     [CHAIN_ID.BSC_TESTNET]: '0xb203cD74cF9c78121ddCe4abfd3A5243C734b4a6',
     [CHAIN_ID.POLYGON]: '0x2aF78D6FfEaF96B39e929cb04B1aa5974b4F7d1d',
     [CHAIN_ID.POLYGON_TESTNET]: '0x3084b9fbCba7e4DE79E6E56D9A3C967DE56536f1',
-    [CHAIN_ID.HARMONY]: '0x6D83b7982437a3546E6c8b15EcC5b7DC58Ff899D',
+    [CHAIN_ID.HARMONY]: '0x3493BE2f5A814D5C43c9bD026AE59b35fbAfd67A',
     [CHAIN_ID.HARMONY_TESTNET]: '0x4D7f36c265eA70530a084f95F7260CF5eA0C88e2',
 };
 
