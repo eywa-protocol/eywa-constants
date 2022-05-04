@@ -276,6 +276,32 @@
     },
     {
       "inputs": [],
+      "name": "SOLANA_ED25519_SIG",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_INSTRUCTIONS",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "SOLANA_RENT",
       "outputs": [
         {
@@ -349,19 +375,26 @@
           "type": "address"
         },
         {
-          "internalType": "address",
-          "name": "_receiveSide",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_oppositeBridge",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_chainId",
-          "type": "uint256"
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Synthesis.SynthParams",
+          "name": "_synthParams",
+          "type": "tuple"
         }
       ],
       "name": "burnSyntheticToken",
@@ -498,6 +531,44 @@
           "type": "string"
         }
       ],
+      "name": "createCustomRepresentation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_rtoken",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_decimals",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_symbol",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_chainSymbol",
+          "type": "string"
+        }
+      ],
       "name": "createRepresentation",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -597,19 +668,31 @@
           "type": "uint256"
         },
         {
-          "internalType": "uint8",
-          "name": "_v",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_r",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_s",
-          "type": "bytes32"
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "publicKey",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "message",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SolanaSerialize.SolanaSignedMessage",
+          "name": "_signedMessage",
+          "type": "tuple"
         }
       ],
       "name": "emergencyUnsyntesizeRequestToSolana",
@@ -942,9 +1025,9 @@
     {
       "inputs": [
         {
-          "internalType": "bytes32",
-          "name": "_tokenReal",
-          "type": "bytes32"
+          "internalType": "address",
+          "name": "_tokenSynth",
+          "type": "address"
         },
         {
           "internalType": "uint256",
