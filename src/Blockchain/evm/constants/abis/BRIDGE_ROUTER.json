@@ -16,6 +16,11 @@
           "internalType": "address",
           "name": "curveProxy",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainID",
+          "type": "uint256"
         }
       ],
       "stateMutability": "nonpayable",
@@ -139,100 +144,6 @@
     {
       "inputs": [
         {
-          "internalType": "address[]",
-          "name": "token",
-          "type": "address[]"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "amount",
-          "type": "uint256[]"
-        },
-        {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "components": [
-            {
-              "internalType": "bytes4",
-              "name": "selector",
-              "type": "bytes4"
-            },
-            {
-              "internalType": "bytes",
-              "name": "data",
-              "type": "bytes"
-            }
-          ],
-          "internalType": "struct IPortal.TransitData",
-          "name": "transitData",
-          "type": "tuple"
-        },
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "receiveSide",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "oppositeBridge",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "chainId",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IPortal.SynthParams",
-          "name": "synthParams",
-          "type": "tuple"
-        },
-        {
-          "components": [
-            {
-              "internalType": "uint8",
-              "name": "v",
-              "type": "uint8"
-            },
-            {
-              "internalType": "bytes32",
-              "name": "r",
-              "type": "bytes32"
-            },
-            {
-              "internalType": "bytes32",
-              "name": "s",
-              "type": "bytes32"
-            },
-            {
-              "internalType": "uint256",
-              "name": "deadline",
-              "type": "uint256"
-            },
-            {
-              "internalType": "bool",
-              "name": "approveMax",
-              "type": "bool"
-            }
-          ],
-          "internalType": "struct IPortal.PermitData[]",
-          "name": "permitData",
-          "type": "tuple[]"
-        }
-      ],
-      "name": "batchSynthesizeRequestWithDataTransit",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "bytes32",
           "name": "txID",
           "type": "bytes32"
@@ -314,6 +225,19 @@
       "name": "emergencyUnsyntesizeRequest",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getHarmonyChainID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -725,9 +649,9 @@
     {
       "inputs": [
         {
-          "internalType": "bytes32",
-          "name": "rtoken",
-          "type": "bytes32"
+          "internalType": "address",
+          "name": "stoken",
+          "type": "address"
         },
         {
           "internalType": "uint256",
@@ -769,11 +693,6 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "tokenReal",
-          "type": "bytes32"
-        },
         {
           "internalType": "address",
           "name": "tokenSynth",
@@ -845,6 +764,192 @@
         }
       ],
       "name": "synthTransferRequestPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "stoken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ISynthesis.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthTransferRequestWithPermit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenSynth",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ISynthesis.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "synthTransferRequestWithPermitPayNative",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
@@ -1221,19 +1326,26 @@
           "type": "address"
         },
         {
-          "internalType": "address",
-          "name": "receiveSide",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "oppositeBridge",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "chainId",
-          "type": "uint256"
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
         }
       ],
       "name": "unsynthesizeRequest",
@@ -1344,6 +1456,192 @@
       "name": "unsynthesizeRequestToSolana",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "stoken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ISynthesis.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        }
+      ],
+      "name": "unsynthesizeRequestWithPermit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenSynth",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "receiveSide",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oppositeBridge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ISynthesis.SynthParams",
+          "name": "synthParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approveMax",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct ISynthesis.PermitData",
+          "name": "permitData",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "executionPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Router.DelegatedCallReceipt",
+          "name": "receipt",
+          "type": "tuple"
+        }
+      ],
+      "name": "unsynthesizeRequestWithPermitPayNative",
+      "outputs": [],
+      "stateMutability": "payable",
       "type": "function"
     }
   ]

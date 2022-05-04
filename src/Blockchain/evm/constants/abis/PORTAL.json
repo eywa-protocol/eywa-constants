@@ -215,6 +215,32 @@
     },
     {
       "inputs": [],
+      "name": "SOLANA_ED25519_SIG",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SOLANA_INSTRUCTIONS",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "SOLANA_RENT",
       "outputs": [
         {
@@ -450,19 +476,31 @@
           "type": "uint256"
         },
         {
-          "internalType": "uint8",
-          "name": "_v",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_r",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_s",
-          "type": "bytes32"
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "publicKey",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "message",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SolanaSerialize.SolanaSignedMessage",
+          "name": "_signedMessage",
+          "type": "tuple"
         }
       ],
       "name": "emergencyUnburnRequestToSolana",
@@ -763,73 +801,6 @@
           "type": "bytes32"
         }
       ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address[]",
-          "name": "_token",
-          "type": "address[]"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "_amount",
-          "type": "uint256[]"
-        },
-        {
-          "internalType": "address",
-          "name": "_from",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "receiveSide",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "oppositeBridge",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "chainId",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct Portal.SynthParams",
-          "name": "_synthParams",
-          "type": "tuple"
-        },
-        {
-          "components": [
-            {
-              "internalType": "bytes4",
-              "name": "selector",
-              "type": "bytes4"
-            },
-            {
-              "internalType": "bytes",
-              "name": "data",
-              "type": "bytes"
-            }
-          ],
-          "internalType": "struct Portal.TransitData",
-          "name": "_transitData",
-          "type": "tuple"
-        }
-      ],
-      "name": "synthesizeBatchWithDataTransit",
-      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
