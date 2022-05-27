@@ -1,7 +1,7 @@
 {
   "name": "@eywa-fi/eywa-contracts",
   "description": "A library that contains all the official contracts of the EYWA",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "main": "cjs/index.js",
   "types": "cjs/index.d.ts",
   "author": "https://github.com/chlenc",
