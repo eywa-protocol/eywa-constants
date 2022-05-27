@@ -1,4 +1,4 @@
-import { HashZero } from "@ethersproject/constants";
+import { AddressZero, HashZero } from "@ethersproject/constants";
 
 export type TChainMapList<T> = {
   readonly [chainId in CHAIN_ID]: T;
@@ -11,8 +11,6 @@ export interface ICurrency {
 }
 
 export enum CHAIN_ID {
-  ETH = 1,
-  ETH_RINKEBY = 4,
   BSC = 56,
   BSC_TESTNET = 97,
   POLYGON = 137,
@@ -22,8 +20,6 @@ export enum CHAIN_ID {
 }
 
 export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
-  [CHAIN_ID.ETH]: { name: "ETH", symbol: "ETH", decimals: 18 },
-  [CHAIN_ID.ETH_RINKEBY]: { name: "ETH", symbol: "ETH", decimals: 18 },
   [CHAIN_ID.BSC]: { name: "BNB", symbol: "BNB", decimals: 18 },
   [CHAIN_ID.BSC_TESTNET]: { name: "BNB", symbol: "BNB", decimals: 18 },
   [CHAIN_ID.POLYGON]: { name: "MATIC", symbol: "MATIC", decimals: 18 },
@@ -33,8 +29,6 @@ export const NATIVE_CURRENCY: TChainMapList<ICurrency> = {
 };
 
 export const CHAIN_NAME: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: "Ethereum",
-  [CHAIN_ID.ETH_RINKEBY]: "Ethereum Rinkeby",
   [CHAIN_ID.BSC]: "BNB Chain",
   [CHAIN_ID.BSC_TESTNET]: "BNB Chain Testnet",
   [CHAIN_ID.POLYGON]: "Polygon",
@@ -44,14 +38,6 @@ export const CHAIN_NAME: TChainMapList<string> = {
 };
 
 export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
-  [CHAIN_ID.ETH]: {
-    name: "Etherscan",
-    url: "https://etherscan.io",
-  },
-  [CHAIN_ID.ETH_RINKEBY]: {
-    name: "Etherscan",
-    url: "https://rinkeby.etherscan.io",
-  },
   [CHAIN_ID.BSC]: {
     name: "BscScan",
     url: "https://bscscan.com",
@@ -80,93 +66,77 @@ export const EXPLORER: TChainMapList<{ name: string; url: string }> = {
 
 //bridge
 export const BRIDGE_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0x6a0fe2A422Ab5bb31666fE35aA6Becd941c7728A",
   [CHAIN_ID.BSC]: "0x6B3d7B7CB5d1E2A0EE7b2E9ef9505A9259e97348",
-  [CHAIN_ID.BSC_TESTNET]: "0x6Ddc3d4966cc40eee45B16448bD57Da5E669Cb20",
+  [CHAIN_ID.BSC_TESTNET]: "0x9Fd15Ab47ca42BEBB4BDEc6984e00c47Ac50fd99",
   [CHAIN_ID.POLYGON]: "0xfc699bEEC6fbA29e714B34FDC3BAF948846D0426",
-  [CHAIN_ID.POLYGON_TESTNET]: "0xA0b8fad3caDABfEC6573317b6BBD5164D6479D1A",
+  [CHAIN_ID.POLYGON_TESTNET]: "0xA79FFF125C80043a00fcEe2984cD91BA74498358",
   [CHAIN_ID.HARMONY]: "0xefcaC5a8B9ff964EA46705840fe3dD137ae3308E",
-  [CHAIN_ID.HARMONY_TESTNET]: "0x2595BBb3782A79678Eb96B4a29A3810E7253c191",
+  [CHAIN_ID.HARMONY_TESTNET]: "0xB61a13f5BB18b4A19d9C24cd12e6D26861e2a9FB",
 };
 
 // dex router(amm_pool)
 export const ROUTER_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: HashZero,
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // ?
 export const PROXY_GSN_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0xA9b67Bac9e2189e96b9609d9401F5FA9Af6bEa3C",
-  [CHAIN_ID.BSC]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
   [CHAIN_ID.BSC_TESTNET]: "0xbFc68681254F12C2A4eA5e4Ba0fD63e8F0dBB619",
-  [CHAIN_ID.POLYGON]: HashZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
   [CHAIN_ID.POLYGON_TESTNET]: "0xaa7262B67e6Ee72e37f2ed8d3329F89603Ad3248",
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // router
 export const BRIDGE_ROUTER_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: HashZero,
   [CHAIN_ID.BSC]: "0xBaF91CB3A372c643716773fd16F96093B4a792d8",
-  [CHAIN_ID.BSC_TESTNET]: "0x20b60643C328Fc4890D26C8FF27165B1152db4Db",
+  [CHAIN_ID.BSC_TESTNET]: "0xeDDC56EEDa04583376fE2517357B23A043f1F259",
   [CHAIN_ID.POLYGON]: "0xC40B277508B55E68ab366FF3b2A833b21f668DdB",
-  [CHAIN_ID.POLYGON_TESTNET]: "0xfeB0eB74BF85d43b73377A41aE3dC0649cd32AE5",
+  [CHAIN_ID.POLYGON_TESTNET]: "0x9E5706ECC4284Ea32C1FeDCF2A9b3f6Eee1914c8",
   [CHAIN_ID.HARMONY]: "0x943F1a4C6906D665a90da60b968BDe2EcF1AA174",
-  [CHAIN_ID.HARMONY_TESTNET]: "0xd17593D2EEaC131BBe79e89E8Af0e3ffA2F66A94",
+  [CHAIN_ID.HARMONY_TESTNET]: "0x33ef4Bb2d74Cb1220eCdEB44Bd6e603674549d25",
 };
 
 // synthesis
 export const SYNTHESIZE_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0xf9a3DE86c0A89755Fe661315c1F1866C69D59DCF",
   [CHAIN_ID.BSC]: "0x5140174ec8B86Be302eC6ba6aF88f365c6D72C2a",
-  [CHAIN_ID.BSC_TESTNET]: "0xb1Eba6042f73B84e0990DfC65D9246dA4388aB16",
+  [CHAIN_ID.BSC_TESTNET]: "0x1D1B208c547081d34b23f72ec8293A8c37Cc44A6",
   [CHAIN_ID.POLYGON]: "0x1785Edb5c47F0fFb05d0b729EEF67300b1bAf032",
-  [CHAIN_ID.POLYGON_TESTNET]: "0x9273B8DAF99ABCdE49026742CFdd2edF09c6Cdf8",
+  [CHAIN_ID.POLYGON_TESTNET]: "0x5373BD1eC3C9344907EDa3143AEEb0e22bD42AbC",
   [CHAIN_ID.HARMONY]: "0xC40B277508B55E68ab366FF3b2A833b21f668DdB",
-  [CHAIN_ID.HARMONY_TESTNET]: "0x8D2033010525b7eDa2855455315A8BB28Bf950C4",
+  [CHAIN_ID.HARMONY_TESTNET]: "0x0ceAb9291d74BEED5b4E9ec589fa64e8ECb5105f",
 };
 
 // portal
 export const PORTAL_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0x64F371aeaAA05080cB0b277f56C4aCE787515Af9",
   [CHAIN_ID.BSC]: "0xa816ea23B3613221533391aD406C7a298C6A311B",
-  [CHAIN_ID.BSC_TESTNET]: "0x6b4e799724182Bd6fD21FFcc9dEe3f6F1A5DD294",
+  [CHAIN_ID.BSC_TESTNET]: "0x763FE467099627025E0884D70417E399412B564A",
   [CHAIN_ID.POLYGON]: "0x85A402b1385cdaA8EEAc661d36d615C131c43C62",
-  [CHAIN_ID.POLYGON_TESTNET]: "0xbeE5507A44ddc4e9534668775608abC7DB4Bc248",
+  [CHAIN_ID.POLYGON_TESTNET]: "0xc24F2FDd21806874ed53C69623cCD7a29F5AB1b6",
   [CHAIN_ID.HARMONY]: "0x577f6D4b6d8725a124A3e2917821c03CdE5D4c11",
-  [CHAIN_ID.HARMONY_TESTNET]: "0xd6258c01Ba29136B97BB36f639DE0CbbA07B523b",
+  [CHAIN_ID.HARMONY_TESTNET]: "0xeEf65e57B287cce59607DEe4C02e714eAbB61679",
 };
 
 // List of addresses using for gasless mode
 // paymaster
 export const PAYMASTER_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0x972ed0f36cec3c792d46ef7158fa7138d88e195c",
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 //frontHelper
 export const MULTICALL: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0xaE816a6C152dDf153EabF04d9A028bfACB32A1Ef",
   [CHAIN_ID.BSC]: "0x81C53e3f59D62f82626a35284E49EA10e8ff8669",
   [CHAIN_ID.BSC_TESTNET]: "0x633e2fbF999D6Fb565732fd970408e2417Ef6EdF",
   [CHAIN_ID.POLYGON]: "0x196A384fCd377773957d3Df32827ae61995CDe50",
@@ -177,43 +147,35 @@ export const MULTICALL: TChainMapList<string> = {
 
 // dex factory
 export const FACTORY_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
-  [CHAIN_ID.ETH_RINKEBY]: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
   [CHAIN_ID.BSC]: "0xBCfCcbde45cE874adCB698cC183deBcF17952812",
   [CHAIN_ID.BSC_TESTNET]: "0x6725F303b657a9451d8BA641348b6761A6CC7a17",
   [CHAIN_ID.POLYGON]: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
   [CHAIN_ID.POLYGON_TESTNET]: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
-  [CHAIN_ID.HARMONY]: HashZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
   [CHAIN_ID.HARMONY_TESTNET]: "0x10072290754Eb3Ce77ADC9C502EFDBcf26164532",
 };
 
 // ?
 export const STABLECOIN_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0x77c24f0Af71257C0ee26e0E0a108F940D1698d53",
-  [CHAIN_ID.BSC]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
   [CHAIN_ID.BSC_TESTNET]: "0x786Ba7a3B3229B0eD707aFf2731DFa4a4E6CB104",
-  [CHAIN_ID.POLYGON]: HashZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
   [CHAIN_ID.POLYGON_TESTNET]: "0x55c18d10ded7968Cd980AbfE0547B410DF284413",
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // ?
 export const FARM_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: "0xC3518c82746b8B45119207a230B555d5781B9430",
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 export const VESTING_ADDRESSES: TChainMapList<string[]> = {
-  [CHAIN_ID.ETH]: [],
-  [CHAIN_ID.ETH_RINKEBY]: [],
   [CHAIN_ID.BSC]: [],
   [CHAIN_ID.BSC_TESTNET]: [
     '0x06E40E9Af1d5E783A4A94515E94a5451aA9A8215',
@@ -234,46 +196,36 @@ export const VESTING_ADDRESSES: TChainMapList<string[]> = {
 
 // ?
 export const CURVE_PROXY_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: HashZero,
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // ?
 export const CURVE_LOCAL_POOL_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: HashZero,
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // ?
 export const CURVE_CROSSCHAIN_POOL_ADDRESS: TChainMapList<string> = {
-  [CHAIN_ID.ETH]: HashZero,
-  [CHAIN_ID.ETH_RINKEBY]: HashZero,
-  [CHAIN_ID.BSC]: HashZero,
-  [CHAIN_ID.BSC_TESTNET]: HashZero,
-  [CHAIN_ID.POLYGON]: HashZero,
-  [CHAIN_ID.POLYGON_TESTNET]: HashZero,
-  [CHAIN_ID.HARMONY]: HashZero,
-  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
+  [CHAIN_ID.BSC]: AddressZero,
+  [CHAIN_ID.BSC_TESTNET]: AddressZero,
+  [CHAIN_ID.POLYGON]: AddressZero,
+  [CHAIN_ID.POLYGON_TESTNET]: AddressZero,
+  [CHAIN_ID.HARMONY]: AddressZero,
+  [CHAIN_ID.HARMONY_TESTNET]: AddressZero,
 };
 
 // ?
 export const INIT_CODE_HASH: TChainMapList<string> = {
-  [CHAIN_ID.ETH]:
-    "0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f",
-  [CHAIN_ID.ETH_RINKEBY]:
-    "0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f",
   [CHAIN_ID.BSC]:
     "0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66",
   [CHAIN_ID.BSC_TESTNET]:
@@ -282,16 +234,11 @@ export const INIT_CODE_HASH: TChainMapList<string> = {
     "0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f",
   [CHAIN_ID.POLYGON_TESTNET]:
     "0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303",
-  [CHAIN_ID.HARMONY]:
-    "0x0000000000000000000000000000000000000000000000000000000000000000",
-  [CHAIN_ID.HARMONY_TESTNET]:
-    "0x0000000000000000000000000000000000000000000000000000000000000000",
+  [CHAIN_ID.HARMONY]: HashZero,
+  [CHAIN_ID.HARMONY_TESTNET]: HashZero,
 };
 
 export const DEFAULT_LOGO_URL_MAP = {
-  [CHAIN_ID.ETH]: "https://rinkeby.etherscan.io/images/main/empty-token.png",
-  [CHAIN_ID.ETH_RINKEBY]:
-    "https://rinkeby.etherscan.io/images/main/empty-token.png",
   [CHAIN_ID.BSC]: "https://testnet.bscscan.com/images/main/empty-token.png",
   [CHAIN_ID.BSC_TESTNET]:
     "https://testnet.bscscan.com/images/main/empty-token.png",
@@ -306,14 +253,12 @@ export const DEFAULT_LOGO_URL_MAP = {
 };
 
 export const BLOCKCHAIN_TESTNETS_SYMBOL_MAP = {
-  [CHAIN_ID.ETH_RINKEBY]: "ETH",
   [CHAIN_ID.BSC_TESTNET]: "BSC",
   [CHAIN_ID.POLYGON_TESTNET]: "POL",
   [CHAIN_ID.HARMONY_TESTNET]: "HRM",
 };
 
 export const BLOCKCHAIN_MAINNETS_SYMBOL_MAP = {
-  [CHAIN_ID.ETH]: "ETH",
   [CHAIN_ID.BSC]: "BSC",
   [CHAIN_ID.POLYGON]: "POL",
   [CHAIN_ID.HARMONY]: "HRM",
@@ -325,13 +270,6 @@ export const BLOCKCHAIN_SYMBOL_MAP = {
 };
 
 export const RPC_URLS: TChainMapList<string[]> = {
-  [CHAIN_ID.ETH]: [
-    "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-  ],
-  [CHAIN_ID.ETH_RINKEBY]: [
-    "https://rinkeby.testnet.eywa.fi",
-    "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-  ],
   [CHAIN_ID.BSC]: ["https://bsc-dataseed.binance.org/"],
   [CHAIN_ID.BSC_TESTNET]: ["https://bsc.testnet.eywa.fi"],
   [CHAIN_ID.POLYGON]: ["https://rpc-mainnet.maticvigil.com/"],
