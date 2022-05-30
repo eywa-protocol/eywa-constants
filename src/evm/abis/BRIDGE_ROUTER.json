@@ -229,7 +229,7 @@
     },
     {
       "inputs": [],
-      "name": "getHarmonyChainID",
+      "name": "getCachedChainId",
       "outputs": [
         {
           "internalType": "uint256",
