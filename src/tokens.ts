@@ -13,7 +13,7 @@ export const tokens = {
     {
       name: "EYWA-Token",
       symbol: "EYWA",
-      address: "0xF35d39587b9364BDaBA3Fe1E3b929B7877b2986d",
+      address: "0xF0AA41A080109BBAF5cB7Dc3434FB20b2Cf2D014",
       decimals: 18,
       network: NETWORKS.HARMONY_TESTNET,
       type: "ERC20"
@@ -31,7 +31,7 @@ export const tokens = {
     {
       name: "EYWA-Token",
       symbol: "EYWA",
-      address: "0x54F4726c37c5D0aC2C6DFe2f7f02a81C0b95DdaD",
+      address: "0x3Cc94e2aD76Ff4CcAF8d80d62d4f9b0B0612f794",
       decimals: 18,
       network: NETWORKS.BSC_TESTNET,
       type: "SYNTH"
@@ -47,7 +47,7 @@ export const tokens = {
     {
       name: "EYWA-Token",
       symbol: "EYWA",
-      address: "0x6BC7F176bD136b157f78Dec99016D7a726f77b87",
+      address: "0x9FB3a04c93860bee9CbD151c7EcEB20624BdF794",
       decimals: 18,
       network: NETWORKS.POLYGON_TESTNET,
       type: "SYNTH"
