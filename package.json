@@ -1,7 +1,7 @@
 {
   "name": "@eywa-fi/eywa-contracts",
   "description": "A library that contains all the official contracts of the EYWA",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "files": [
     "dist/*"
   ],
